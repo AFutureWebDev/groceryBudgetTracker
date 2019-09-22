@@ -17,23 +17,31 @@ export class AddItem extends Component {
     // this.setState({[e.target.name]:e.target.value})
     // };
 
+
+    searchGroceries = () => {
+        console.log('firing search groceries')
+       fetch(`/search/${this.state.searchText}`, {
+           headers: {
+               'Content-Type': 'application/json',
+               'Accept': 'application/json'
+           }
+       })
+           .then(function(response) {
+             return response.json();
+           })
+           .then(function(myJson) {
+             console.log(JSON.stringify(myJson));
+           });
+       }
+
     // Search Text
     searchText = (e) => {
         console.log('is this working');
         this.setState({searchText:e.target.value});
         // added the next line from the addItemText function above
         this.setState({[e.target.name]:e.target.value});
+        this.searchGroceries();
      }
-
-     searchGroceries() {
-        fetch(`/search/${this.state.searchText}`)
-            .then(function(response) {
-              return response.json();
-            })
-            .then(function(myJson) {
-              console.log(JSON.stringify(myJson));
-            });
-        }
 
 
     render() {
