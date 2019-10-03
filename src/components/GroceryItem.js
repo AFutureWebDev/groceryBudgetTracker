@@ -32,7 +32,7 @@ complete = () => {
         return (
             <div style={this.getStyle()}>
                 <div style={{display: 'flex', flexDirection: 'row', width: '300px',}}>
-                    <Modal complete={this.complete}/> 
+                    <Modal name={this.props.item} complete={this.complete}/> 
                     <p style={{marginLeft: '10px'}}>{title}</p>
                 </div>
                 <button onClick={this.props.delItem.bind(this, id)} style={btnStyle}>x</button>

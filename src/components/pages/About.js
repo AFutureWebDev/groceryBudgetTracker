@@ -3,8 +3,8 @@ import React from 'react'
 function About() {
     return (
         <React.Fragment>
-            <h1>About</h1>
-            <p>This is the Grocery Budget Tracker App v1.0.0.</p>
+            <h1>Welcome</h1>
+            <p>Grocery Buddy, your personal shopping budget tracker.</p>
         </React.Fragment>
     )
 }

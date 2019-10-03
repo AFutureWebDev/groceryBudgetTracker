@@ -32,7 +32,8 @@ const styles = theme => ({
 class SimpleModal extends React.Component {
   state = {
     open: false,
-    price: ''
+    price: '',
+    item: ''
   };
 
   handleOpen = () => {
@@ -48,16 +49,17 @@ class SimpleModal extends React.Component {
   }
 
   sendGrocery = (e) => {
-    e.preventDefault();
+    console.log('it worked');
+    // e.preventDefault();
     let newItem={
       method:"POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-          item: 'pineapple',
-          price: this.state.price,
+          item: this.state.item,
+          price: this.state.price
       })
     }
-    fetch("http://localhost:3001/groceries", newItem).then((res)=>{
+    fetch("http://localhost:4000/groceries", newItem).then((res)=>{
       console.log(res.json())
     })
   }
@@ -79,7 +81,7 @@ class SimpleModal extends React.Component {
               How much is this item?
             </Typography>
             <i class="fas fa-dollar-sign"></i><input style={{marginLeft: 5}} onChange = {this.onChangePrice}></input> <br/>
-            <Button style={{marginTop: 10}} size="small" variant="contained" color="secondary" onClick={this.sendGrocery, this.handleClose}>Submit</Button>
+            <Button style={{marginTop: 10}} size="small" variant="contained" color="secondary" onClick={() => {this.sendGrocery(); this.handleClose();}}>Submit</Button>
           </div>
         </Modal>
       </div>

@@ -14,7 +14,7 @@ let groceryRoute = require('./Routes/groceryRoute');
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-const thePort = 3001;
+const thePort = 4000;
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

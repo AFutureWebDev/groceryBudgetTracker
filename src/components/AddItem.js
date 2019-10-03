@@ -50,7 +50,7 @@ export class AddItem extends Component {
                 <input type="text" name="title" style={{flex: '10', padding: '5px'}} placeholder="Add Item..." value={this.state.title} 
                 onChange={this.searchText}/>
                 <input type="submit" value="Submit" className="btn"
-                style={{flex: '1'}}/>
+                style={{flex: '1', backgroundColor: 'black', padding: '10px'}}/>
             </form>
         )
     }

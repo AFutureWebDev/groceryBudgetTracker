@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Header from './components/layout/Header';
 import GroceryList from './components/GroceryList';
 import AddItem from './components/AddItem';
+import CartTotal from './components/CartTotal';
 import About from './components/pages/About';
 import uuid from 'uuid';
 import './App.css';
@@ -26,8 +27,11 @@ class App extends React.Component {
         title: 'Spinach',
         completed: false
       },
-    ]
+    ],
+    total: ''
   }
+
+  
   //Toggle Complete
   markComplete = (id) => {
     this.setState({groceryList: this.state.groceryList.map(item => {
@@ -61,6 +65,7 @@ class App extends React.Component {
         <div className="App">
           <div className="container">
             <Header/>
+            <CartTotal/>
             <Route exact path="/" render={props => (
               <React.Fragment>
                 <AddItem addItem={this.addItem}/>
